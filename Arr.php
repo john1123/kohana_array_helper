@@ -1,8 +1,10 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Arr extends Kohana_Arr {
+class Arr extends Kohana_Arr
+{
 
-    public static function get($array, $key, $default = NULL) {
+    public static function get($array, $key, $default = null)
+    {
         if (strpos($key, '=>') !== false) {
             return Arr::get_multidimensional($array, $key, $default);
         }
@@ -16,7 +18,7 @@ class Arr extends Kohana_Arr {
      * @param null $default
      * @return mixed
      */
-    public static function geti($array, $key, $default = NULL)
+    public static function geti($array, $key, $default = null)
     {
         if (strpos($key, '=>') !== false) {
             return Arr::geti_multidimensional($array, $key, $default);
@@ -36,7 +38,8 @@ class Arr extends Kohana_Arr {
      * @param $default - Default value
      * @return mixed
      */
-    protected static function get_multidimensional($array, $keys, $default = NULL) {
+    protected static function get_multidimensional($array, $keys, $default = null)
+    {
         $keys_arr = explode('=>', $keys);
         $value = $array;
         foreach ($keys_arr as $key) {
@@ -52,7 +55,8 @@ class Arr extends Kohana_Arr {
      * @param $default - Default value
      * @return mixed
      */
-    protected static function geti_multidimensional($array, $keys, $default = NULL) {
+    protected static function geti_multidimensional($array, $keys, $default = null)
+    {
         $keys_arr = explode('=>', $keys);
         $value = $array;
         foreach ($keys_arr as $key) {
